@@ -23,3 +23,23 @@ function buildTable(data){
     });
   });
 }
+
+//Create a function to filter table by date based on user clicks
+
+function handleClick(){
+  //Select html tag with datetime id and store that value in date variable
+  let date = d3.select("#datetime").property("value");
+  //set default filter value which is original table data
+  let filteredData = tableData;
+  //set up a conditional filter for date if date is present
+  if(date){
+    filteredData = filteredDate.filter(row => row.datetime === date);
+    //Build the filtered table
+    buildTable(filteredData);
+  };
+}
+//Attach the function to the html button and make it responsive to a click
+d3.selectAll("#filter-btn").on("click", handleClick);
+
+//Build default table by making call to buildTable funtion
+buildTable(tableData);
