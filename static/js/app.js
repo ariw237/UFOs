@@ -33,7 +33,7 @@ function handleClick(){
   let filteredData = tableData;
   //set up a conditional filter for date if date is present
   if(date){
-    filteredData = filteredDate.filter(row => row.datetime === date);
+    filteredData = filteredData.filter(row => row.datetime === date);
     //Build the filtered table
     buildTable(filteredData);
   };
